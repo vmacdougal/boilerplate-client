@@ -1,0 +1,12 @@
+{
+  "name": "client_boilerplate",
+  "version": "0.0.1",
+  "description": "isomorphic web app boilerplate (Node.js, Webpack, Babel, ESLint, Flow, React.js, Redux.js, SAAS)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "russell sherman",
+  "license": "CC-BY-SA-4.0",
+  "repository": "https://github.com/BurnerDev/boilerplate-client.git"
+}
