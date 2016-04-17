@@ -7,6 +7,11 @@ module.exports = {
   entry: [
     path.resolve(ROOT_PATH, 'app', 'src', 'application'),
   ],
+  preLoaders: [{
+    test: /\.jsx?$/,
+    loaders: ['eslint'],
+    include: path.resolve(ROOT_PATH)
+  }],
   module: {
     loaders: [{
       test: /\.jsx?$/,
