@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function helloWorld() {
   var element = document.createElement('h1');
 
   element.innerHTML = 'Hello Client Application!';
