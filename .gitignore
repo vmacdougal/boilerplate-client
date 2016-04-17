@@ -36,3 +36,6 @@ node_modules
 # ignore TODO
 TODO*
 todo*
+
+# ignore build directory
+app/build/*.*
