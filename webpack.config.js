@@ -7,8 +7,15 @@ module.exports = {
   entry: [
     path.resolve(ROOT_PATH, 'app', 'src', 'application'),
   ],
+  module: {
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }]
+  },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['', '.js', '.jsx']
   },
   output: {
     path: path.resolve(ROOT_PATH, 'app', 'build'),
@@ -16,7 +23,11 @@ module.exports = {
     filename: 'application.js'
   },
   devServer: {
-    contentBase: path.resolve(ROOT_PATH, 'app', 'build')
+    contentBase: path.resolve(ROOT_PATH, 'app', 'build'),
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
