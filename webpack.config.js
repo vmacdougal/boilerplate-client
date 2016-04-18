@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     path.resolve(ROOT_PATH, 'app', 'src', 'application')
   ],
@@ -16,7 +17,10 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader'
+      loaders: [
+        'react-hot',
+        'babel-loader?{"presets":["es2015","react"]}'
+      ]
     }]
   },
   resolve: {
@@ -37,7 +41,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlwebpackPlugin({
-      title: 'ClientBoilerplate'
+      title: 'ClientBoilerplate',
+      template: 'app/src/index.ejs' // Load a custom template
     })
   ]
 };

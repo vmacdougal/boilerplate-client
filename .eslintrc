@@ -1,3 +1,12 @@
 {
-  "extends": "airbnb-base/legacy"
+  "extends": "airbnb-base/legacy",
+
+  "parser": "babel-eslint",
+
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+    }
+  }
 }
