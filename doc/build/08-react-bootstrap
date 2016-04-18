@@ -11,7 +11,7 @@ npm install react-bootstrap --save
 we need to create a file to act as a loader for bootstrap style files
 create app/src/components/App.css with the following content
 ```
-@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
 ```
 
 now we need to tell our application to load our new css file

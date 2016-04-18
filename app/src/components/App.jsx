@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Router, Route, Link, hashHistory} from 'react-router';
-import Heading from './Heading.jsx';
-import StateUpdate from './StateUpdate.jsx';
-import Bootstrap from './Bootstrap.jsx';
+import Heading from 'Heading.jsx';
+import StateUpdate from 'StateUpdate.jsx';
+import Bootstrap from 'Bootstrap.jsx';
 
 const Home = () => <div><Links /><Heading txt='Home' /><Bootstrap /></div>;
 const About = () => <div><Links /><Heading txt='About' /></div>;

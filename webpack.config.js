@@ -2,6 +2,7 @@ var path = require('path');
 var ROOT_PATH = path.resolve(__dirname);
 var webpack = require('webpack');
 var HtmlwebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -20,7 +21,7 @@ module.exports = {
       loaders: [
         'react-hot',
         'babel-loader?' + JSON.stringify({
-          presets:['es2015', 'react']
+          presets:['react', 'es2015']
         })
       ]
     },
@@ -30,12 +31,19 @@ module.exports = {
     {test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/, loaders: ['file-loader']}]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    root: path.resolve(__dirname),
+    extensions: ['', '.js', '.jsx'],
+    modulesDirectories: [
+      'src',
+      'src/common',
+      'src/components',
+      'node_modules'
+    ]
   },
   output: {
     path: path.resolve(ROOT_PATH, 'app', 'build'),
     publicPath: '/',
-    filename: 'application.js'
+    filename: 'application.js',
   },
   devServer: {
     contentBase: path.resolve(ROOT_PATH, 'app', 'build'),
@@ -50,5 +58,7 @@ module.exports = {
       title: 'ClientBoilerplate',
       template: 'app/src/index.ejs', // Load a custom template
     }),
-  ],
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin('style.css', {allChunks: true})
+  ]
 };

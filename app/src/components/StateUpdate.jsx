@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Heading from './Heading.jsx';
+import React, {Component} from 'react';
+import Heading from 'Heading.jsx';
 
 class StateUpdate extends Component {
   constructor() {

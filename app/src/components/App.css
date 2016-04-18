@@ -1,1 +1,14 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../../../node_modules/nprogress/nprogress.css';
+@import '../../../node_modules/bootstrap-social/bootstrap-social.css';
+@import '../../../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../../../node_modules/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css';
+
+.navbar-brand img {
+	display: inline-block;
+	height: 26px;
+}
+
+.panel-body {
+  overflow: hidden;
+}
