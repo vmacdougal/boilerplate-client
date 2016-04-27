@@ -1,0 +1,116 @@
+## react bootstrap
+
+Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive,
+mobile first projects on the web. See http://getbootstrap.com/
+
+start by installing
+```
+npm install react-bootstrap --save
+```
+
+we need to create a file to act as a loader for bootstrap style files
+create app/src/components/App.css with the following content
+```
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+```
+
+now we need to tell our application to load our new css file
+modify app/src/application.jsx to reflect
+```
+import React from 'react';
+import {render} from 'react-dom';
+import App from './components/App.jsx';
+import './components/App.css';
+
+render(
+  <App />,
+  document.getElementById('app')
+);
+```
+
+create a new component app/src/components/Bootstrap.jsx
+```
+import React, {Component} from 'react';
+import {Button, ButtonToolbar, Col, Panel, Row} from 'react-bootstrap';
+
+class Bootstrap extends Component {
+
+  render() {
+    return (
+      <div>
+        <div className='container'>
+          <ButtonToolbar>
+            <Button>Default</Button>
+            <Button bsStyle='primary'>Primary</Button>
+            <Button bsStyle='success'>Success</Button>
+            <Button bsStyle='info'>Info</Button>
+            <Button bsStyle='warning'>Warning</Button>
+            <Button bsStyle='danger'>Danger</Button>
+            <Button bsStyle='link'>Link</Button>
+          </ButtonToolbar>
+        </div>
+        <br />
+
+        <div className='container'>
+          <Row>
+            <Col xs={12} md={8}>
+              <Panel header={<span>Col xs={12} md={8}</span>} />
+            </Col>
+            <Col xs={6} md={4}>
+              <Panel header={<span>Col xs={6} md={4}</span>} />
+            </Col>
+          </Row>
+        </div>
+
+        <div className='container'>
+          <Row>
+            <Col xs={6} md={4}>
+              <Panel header={<span>Col xs={6} md={6}</span>} />
+            </Col>
+            <Col xs={6} md={4}>
+              <Panel header={<span>Col xs={6} md={4}</span>} />
+            </Col>
+            <Col xsHidden md={4}>
+              <Panel header={<span>Col xshidden md={4}</span>} />
+            </Col>
+          </Row>
+
+          <Row className='show-grid'>
+            <Col md={6} mdPush={6}>
+              <Panel header={<span>Col md={6} mdPush={6}</span>} />
+            </Col>
+            <Col md={6} mdPull={6}>
+              <Panel header={<span>Col md={6} mdPull={6}</span>} />
+            </Col>
+          </Row>
+        </div>
+
+      </div>
+    );
+  }
+};
+
+export default Bootstrap;
+```
+
+and finally modify app/src/components/App.jsx to load the new bootstrap component
+```
+import React, {Component} from 'react';
+import Heading from './Heading.jsx';
+import StateUpdate from './StateUpdate.jsx';
+import Bootstrap from './Bootstrap.jsx';
+
+class App extends Component {
+  render() {
+    return (
+      <div className='wrapper'>
+        <Heading txt='Hello React World!!'/>
+        <StateUpdate />
+        <Bootstrap />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
