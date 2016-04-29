@@ -5,7 +5,7 @@ class StateUpdate extends Component {
   constructor() {
     super();
     this.state = {
-      txt: 'this is the state txt',
+      txt: 'Message Preview',
       cat: 0,
     };
   }
@@ -17,7 +17,7 @@ class StateUpdate extends Component {
   render() {
     return (
       <div>
-        <input type="text" onChange={this.update(this)} />
+        <textarea onChange={this.update.bind(this)} />
         <Heading txt={this.state.txt} cat={1} />
       </div>
     );
