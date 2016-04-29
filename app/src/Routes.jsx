@@ -17,6 +17,7 @@ import DashboardTablesPage from 'pages/Tables';
 import DashboardTypographyPage from 'pages/Typography';
 import LoginPage from 'pages/Login';
 import LogoutPage from 'pages/Logout';
+import RedditPage from 'components/Reddit';
 
 var Routes = React.createClass({
   render: function() {
@@ -36,6 +37,7 @@ var Routes = React.createClass({
             <Route path='/icons' component={DashboardIconsPage} />
             <Route path='/grid' component={DashboardGridPage} />
             <Route path='/blank' component={DashboardBlankPage} />
+            <Route path='/reddit' component={RedditPage} />
           </Route>
           <Route path='/login' component={LoginPage} />
           <Route path='/logout' component={LogoutPage} />

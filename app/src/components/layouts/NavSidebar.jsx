@@ -183,6 +183,11 @@ var NavSidebar = React.createClass({
                     Login Page
                   </Link>
                 </li>
+                <li>
+                  <Link to='reddit' onClick={this.toggleMenu}>
+                    Reddit Page
+                  </Link>
+                </li>
               </ul>
 
             </li>
