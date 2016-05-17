@@ -41,27 +41,11 @@ var NavSidebar = React.createClass({
               </Link>
             </li>
 
-            <li className={classNames({'active': !this.state.chartsElementsCollapsed})}>
-              <a href='javascript:void(0)' onClick={ () => {
-                this.setState({chartsElementsCollapsed: !this.state.chartsElementsCollapsed});
-                return false;
-              } }>
+            <li>
+              <Link to='/recharts' onClick={this.toggleMenu}>
                 <i className='fa fa-bar-chart-o fa-fw' /> &nbsp;
-                Charts
-                <span className='fa arrow' />
-              </a>
-              <ul className={classNames({'nav nav-second-level': true, 'collapse': this.state.chartsElementsCollapsed})}>
-                <li>
-                  <Link to='/flot-charts' onClick={this.toggleMenu}>
-                    Flot Charts
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/morrisjs-charts' onClick={this.toggleMenu}>
-                    Morris.js Charts
-                  </Link>
-                </li>
-              </ul>
+                ReCharts
+              </Link>
             </li>
 
             <li>

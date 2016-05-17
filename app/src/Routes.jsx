@@ -7,13 +7,12 @@ import DashboardLayout from 'layouts/Dashboard.jsx';
 import DashboardBlankPage from 'pages/Blank';
 import DashboardButtonsPage from 'pages/Buttons';
 import DashboardFormsPage from 'pages/Forms';
-import DashboardFlotChartsPage from 'pages/FlotCharts';
 import DashboardGridPage from 'pages/Grid';
 import DashboardHomePage from 'pages/Home';
 import DashboardIconsPage from 'pages/Icons';
-import DashboardMorrisjsChartsPage from 'pages/MorrisjsCharts';
 import DashboardNotificationsPage from 'pages/Notifications';
 import DashboardPanelsWellsPage from 'pages/PanelsWells';
+import DashboardReChartsPage from 'pages/Recharts';
 import DashboardTablesPage from 'pages/Tables';
 import DashboardTypographyPage from 'pages/Typography';
 import LoginPage from 'pages/Login';
@@ -27,8 +26,7 @@ var Routes = React.createClass({
         <Route path='/' component={BaseLayout}>
           <Route path='/dashboard' component={DashboardLayout}>
             <Route path='/home' component={DashboardHomePage} />
-            <Route path='/flot-charts' component={DashboardFlotChartsPage} />
-            <Route path='/morrisjs-charts' component={DashboardMorrisjsChartsPage} />
+            <Route path='/recharts' component={DashboardReChartsPage} />
             <Route path='/forms' component={DashboardFormsPage} />
             <Route path='/tables' component={DashboardTablesPage} />
             <Route path='/panels-wells' component={DashboardPanelsWellsPage} />
