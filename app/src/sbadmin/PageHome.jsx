@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { MenuItem, DropdownButton, Panel, PageHeader, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
 import StatWidget from './StatWidget.js';
+import PositiveNegativeBarChart from './charts/PositiveNegativeBarChart.jsx';
+import StackedAreaChart from './charts/StackedAreaChart.jsx';
+import LineBarAreaComposedChart from './charts/LineBarAreaComposedChart.jsx';
 
 export default class Home extends Component {
   render() {
@@ -65,7 +68,7 @@ export default class Home extends Component {
               </span>}
             >
               <div>
-                Panel contents
+                <StackedAreaChart />
               </div>
             </Panel>
 
@@ -82,9 +85,7 @@ export default class Home extends Component {
                   </div>
               </span>}
             >
-              <div>
-                Panel contents
-              </div>
+              <PositiveNegativeBarChart />
             </Panel>
 
             <Panel header={<span>
@@ -145,11 +146,11 @@ export default class Home extends Component {
             </Panel>
 
             <Panel header={<span>
-              <i className='fa fa-bar-chart-o fa-fw' /> Donut Chart Example
+              <i className='fa fa-bar-chart-o fa-fw' /> Line Area Composed Chart Example
               </span>}
             >
               <div>
-                Panel contents
+                <LineBarAreaComposedChart />
               </div>
             </Panel>
           </div>

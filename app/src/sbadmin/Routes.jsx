@@ -11,8 +11,7 @@ import DashboardHomePage from './PageHome.jsx';
 import DashboardIconsPage from './PageIcons.jsx';
 import DashboardNotificationsPage from './PageNotifications.jsx';
 import DashboardPanelsWellsPage from './PagePanelsWells.jsx';
-import DashboardFlotChartsPage from './PageFlotCharts.jsx';
-import DashboardMorrisjsChartsPage from './PageMorrisjsCharts.jsx';
+import DashboardReChartsPage from './PageRecharts.jsx';
 import DashboardTablesPage from './PageTables.jsx';
 import DashboardTypographyPage from './PageTypography.jsx';
 import LoginPage from './PageLogin.jsx';
@@ -26,8 +25,7 @@ export default class Routes extends Component {
         <Route path='/' component={BaseLayout}>
           <Route path='/dashboard' component={DashboardLayout}>
             <Route path='/home' component={DashboardHomePage} />
-            <Route path='/flot-charts' component={DashboardFlotChartsPage} />
-            <Route path='/morrisjs-charts' component={DashboardMorrisjsChartsPage} />
+            <Route path='/recharts' component={DashboardReChartsPage} />
             <Route path='/forms' component={DashboardFormsPage} />
             <Route path='/tables' component={DashboardTablesPage} />
             <Route path='/panels-wells' component={DashboardPanelsWellsPage} />
