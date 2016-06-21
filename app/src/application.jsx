@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Router from './components/Router.jsx';
+import Routes from './sbadmin/Routes.jsx';
 import './application.css';
 
 render(
-  <Router />,
+  <Routes />,
   document.getElementById('app')
 );
