@@ -103,6 +103,11 @@ var NavSidebar = React.createClass({
                     Grid
                   </Link>
                 </li>
+                <li>
+                  <Link to='/mail-form' onClick={this.toggleMenu}>
+                    Mail Form
+                  </Link>
+                </li>
               </ul>
             </li>
 
