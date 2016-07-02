@@ -62,6 +62,18 @@ var NavSidebar = React.createClass({
               </Link>
             </li>
 
+            <li>
+              <Link to='/mail-form' onClick={this.toggleMenu}>
+              <i className='fa fa-envelope-o fa-fw'/> &nbsp;
+                Mail Form
+              </Link>
+            </li>
+            <li>
+              <Link to='/mail-form2' onClick={this.toggleMenu}>
+              <i className='fa fa-envelope-o fa-fw'/> &nbsp;
+                Mail Form 2
+              </Link>
+            </li>
             <li className={classNames({'active': !this.state.uiElementsCollapsed})}>
               <a href='javascript:void(0)' onClick={ () => {
                 this.setState({uiElementsCollapsed: !this.state.uiElementsCollapsed});
@@ -101,11 +113,6 @@ var NavSidebar = React.createClass({
                 <li>
                   <Link to='/grid' onClick={this.toggleMenu}>
                     Grid
-                  </Link>
-                </li>
-                <li>
-                  <Link to='/mail-form' onClick={this.toggleMenu}>
-                    Mail Form
                   </Link>
                 </li>
               </ul>

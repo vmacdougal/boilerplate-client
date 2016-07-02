@@ -10,6 +10,7 @@ import DashboardFormsPage from 'pages/Forms';
 import DashboardGridPage from 'pages/Grid';
 import DashboardHomePage from 'pages/Home';
 import DashboardMailFormPage from 'pages/MailForm';
+import DashboardMailFormPage2 from 'pages/MailForm2';
 import DashboardIconsPage from 'pages/Icons';
 import DashboardNotificationsPage from 'pages/Notifications';
 import DashboardPanelsWellsPage from 'pages/PanelsWells';
@@ -38,6 +39,7 @@ var Routes = React.createClass({
             <Route path='/icons' component={DashboardIconsPage} />
             <Route path='/grid' component={DashboardGridPage} />
             <Route path='/mail-form' component={DashboardMailFormPage} />
+            <Route path='/mail-form2' component={DashboardMailFormPage2} />
             <Route path='/blank' component={DashboardBlankPage} />
             <Route path='/reddit' component={RedditPage} />
           </Route>
