@@ -1,12 +1,12 @@
 import React from 'react';
 import {Router} from 'react-router';
-import {Panel, Input, Button} from 'react-bootstrap';
+import {Panel, Input, Button, Row, Col} from 'react-bootstrap';
 
 var MapLocationPage = React.createClass({
 
   getInitialState: function(){
     return {
-      loginID: '',
+      streetAddress: '',
       password: '',
       isSubmitted: false
     };
@@ -18,37 +18,35 @@ var MapLocationPage = React.createClass({
     return (
       <div className='col-md-4 col-md-offset-4'>
           <div className='text-center'>
-            <h1 className='login-brand-text'>SB Admin React</h1>
-            <h3 className='text-muted'>Created by <a href='http://startreact.com'>StartReact.com</a> team</h3>
+            <h3 className='text-muted'>Map My Address</h3>
           </div>
-          <Panel header={<h3>Please Sign In</h3>} className='login-panel'>
-            <form role='form' onSubmit={this.handleMapLocation}>
+          <Panel header={<h3>Map Address</h3>}>
+            <form role='form' onSubmit={this.findMapLocation}>
               <fieldset>
                 <div className='form-group'>
-                  <Input onChange={this.setMapLocationID} className='form-control' placeholder='Username' ref='loginID' type='text' autofocus='' name='name' />
+                  <Input onChange={this.setAddress} className='form-control' placeholder='Street Address' ref='streetAddress' type='text' autofocus='' name='address' />
                 </div>
-                <div className='form-group'>
-                  <Input onChange={this.setPassword} className='form-control' placeholder='Password' ref='password' type='password' name='password' />
-                </div>
-                <Input type='checkbox' label='Remember Me' />
-                <Button type='submit' bsSize='large' bsStyle='success' block>MapLocation</Button>
+                <Button type='submit' bsSize='large' bsStyle='success' block>Map My Location</Button>
               </fieldset>
+	      <fieldset>
+		<div className='row'>
+		  <Col xs={6}>
+		  <Input type='text' label='Latitude' placeholder='latitude'/>
+		  </Col>
+		  <Col xs={6}>
+		  <Input type='text' label='Longitude' placeholder='longitude'/>
+		  </Col>
+		  </div>
+	      </fieldset>
             </form>
           </Panel>
         </div>
     );
   },
 
-  setLoginID: function(e) {
+  setAddress: function(e) {
     this.setState({
-      loginID: e.target.value,
-      loginError: ''
-    });
-  },
-
-  setPassword: function(e) {
-    this.setState({
-      password: e.target.value,
+      address: e.target.value,
       loginError: ''
     });
   },
