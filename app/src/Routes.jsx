@@ -20,6 +20,7 @@ import DashboardTypographyPage from 'pages/Typography';
 import LoginPage from 'pages/Login';
 import LogoutPage from 'pages/Logout';
 import RedditPage from 'components/Reddit';
+import MapLocationPage from 'components/MapLocation';
 
 var Routes = React.createClass({
   render: function() {
@@ -42,6 +43,7 @@ var Routes = React.createClass({
             <Route path='/mail-form2' component={DashboardMailFormPage2} />
             <Route path='/blank' component={DashboardBlankPage} />
             <Route path='/reddit' component={RedditPage} />
+            <Route path='/map-location' component={MapLocationPage} />
           </Route>
           <Route path='/login' component={LoginPage} />
           <Route path='/logout' component={LogoutPage} />

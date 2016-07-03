@@ -200,6 +200,11 @@ var NavSidebar = React.createClass({
                     Reddit Page
                   </Link>
                 </li>
+                <li>
+                  <Link to='map-location' onClick={this.toggleMenu}>
+		     Map My Location
+                  </Link>
+                </li>
               </ul>
 
             </li>
