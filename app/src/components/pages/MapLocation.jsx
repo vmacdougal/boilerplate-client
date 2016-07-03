@@ -31,10 +31,10 @@ var MapLocationPage = React.createClass({
 	      <fieldset>
 		<div className='row'>
 		  <Col xs={6}>
-		  <Input type='text' label='Latitude' placeholder='latitude'/>
+		  <Input type='text' label='Latitude' placeholder='latitude' name='latitude' id='latitude'/>
 		  </Col>
 		  <Col xs={6}>
-		  <Input type='text' label='Longitude' placeholder='longitude'/>
+		  <Input type='text' label='Longitude' placeholder='longitude' name='longitude' id='longitude'/>
 		  </Col>
 		  </div>
 	      </fieldset>
@@ -44,18 +44,33 @@ var MapLocationPage = React.createClass({
     );
   },
 
-  setAddress: function(e) {
+    setAddress: function(e) {
+	console.log("Setting address to " + e.target.value.properties);
     this.setState({
-      address: e.target.value,
+      streetAddress: e.target.value,
       loginError: ''
     });
   },
 
-  handleLogin: function(e){
-    this.transitionTo('dashboard');
-    return false;
-  }
-
+    findMapLocation: function(e) {
+	var address = this.state.streetAddress;
+	address = address.replace(/ /g,'+');
+	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + ',+Austin,+TX&key=AIzaSyBwG8daotYRfsMPi4m1Wk-12uXUeaKEJ_k';
+	var request = new Request(url,
+				  {method: 'GET',
+				   mode: 'cors'
+				  });
+	fetch(request)
+	    .then(function(response) {
+		return response.json();
+	    })
+	    .then(function(json) {
+		latitude = json.results[0].geometry.location.lat;
+		longitude = json.results[0].geometry.location.lng;
+		document.getElementById("latitude").value = latitude;
+		document.getElementById("longitude").value = longitude;
+	    });
+    }
 });
 
 export default MapLocationPage;
