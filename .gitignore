@@ -39,3 +39,6 @@ todo*
 
 # ignore build directory
 app/build/*.*
+
+# ignore emacs backup files
+*~
