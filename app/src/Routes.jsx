@@ -20,7 +20,7 @@ import DashboardTypographyPage from 'pages/Typography';
 import LoginPage from 'pages/Login';
 import LogoutPage from 'pages/Logout';
 import RedditPage from 'components/Reddit';
-import MapLocationPage from 'pages/MapLocation';
+import MapLocationPage from 'components/MapLocation';
 
 var Routes = React.createClass({
   render: function() {

@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS} from 'actions';
+import {SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS, ENTER_ADDRESS, SET_COORDINATES} from 'actions';
 
 function selectedSubreddit(state = 'reactjs', action) {
   switch (action.type) {
@@ -9,6 +9,24 @@ function selectedSubreddit(state = 'reactjs', action) {
     return state;
   };
 };
+
+function address(state = null, action) {
+    switch(action.type) {
+    case ENTER_ADDRESS:
+	return action.address;
+    default:
+	return state;
+    };
+};
+
+function setCoordinates(state = {lat:null, lon:null}, action) {
+    switch(action.type) {
+    case SET_COORDINATES:
+	return action.coordinates;
+    default:
+	return state;
+    };
+}
 
 function posts(state = {isFetching: false, didInvalidate: false, items: []}, action) {
   let hash = {};
@@ -56,7 +74,9 @@ function postsBySubreddit(state = { }, action) {
 
 const rootReducer = combineReducers({
   postsBySubreddit,
-  selectedSubreddit
+    selectedSubreddit,
+    address,
+    setCoordinates
 });
 
 export default rootReducer;
