@@ -1,10 +1,13 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {Row} from 'react-bootstrap';
 
 import {selectSubreddit, fetchPostsIfNeeded, invalidateSubreddit, findMapLocation, enterAddress, setCoordinates} from 'actions';
 import TextInput from 'TextInput.jsx';
+import ImmutableTextInput from 'ImmutableTextInput.jsx';
 import Picker from 'Picker.jsx';
 import Posts from 'Posts.jsx';
+import SubmitButton from 'SubmitButton.jsx';
 
 class AsyncMapApp extends Component {
     constructor(props) {
@@ -12,6 +15,7 @@ class AsyncMapApp extends Component {
     this.handleChange = this.handleChange.bind(this);
 	this.handleRefreshClick = this.handleRefreshClick.bind(this);
 	this.handleTextInput = this.handleTextInput.bind(this);
+	this.retrieveCoordinates = this.retrieveCoordinates.bind(this);
   };
 
   componentDidMount() {
@@ -27,7 +31,7 @@ class AsyncMapApp extends Component {
       else if (nextProps.address !== this.props.address) {
 	  const {address} = nextProps;
 	  var dispatch = nextProps.dispatch;
-	  dispatch(setCoordinates(address));
+	  dispatch(enterAddress(address));
       };
   };
 
@@ -39,6 +43,11 @@ class AsyncMapApp extends Component {
 	this.props.dispatch(enterAddress(address));
     };
 
+    retrieveCoordinates(address) {
+	console.log("retrieving coordinates");
+	this.props.dispatch(setCoordinates(this.props.address));
+    };
+
   handleRefreshClick(e) {
     e.preventDefault();
     const {dispatch, selectedSubreddit} = this.props;
@@ -47,12 +56,21 @@ class AsyncMapApp extends Component {
   }
 
   render() {
-      const {selectedSubreddit, posts, isFetching, lastUpdated, address} = this.props;
+      const {selectedSubreddit, posts, isFetching, lastUpdated, address, coordinates} = this.props;
     return (
 	    <div>
-	    <Picker value={address} onChange={this.handleTextInput} options={['1515 Karen Ave', '100 Deen Ave']} />
-
-        <Picker value={selectedSubreddit} onChange={this.handleChange} options={['reactjs', 'frontend']} />
+	    <div>
+	    <TextInput value={address} onChange={this.handleTextInput} />
+	    </div>
+	    <div>
+	    <SubmitButton onClick={this.retrieveCoordinates} />
+	    </div>
+	    <div class-name='row'>
+	    <ImmutableTextInput value={coordinates[0]} onChange={this.handleTextInput}/>
+	    <ImmutableTextInput value={coordinates[1]} onChange={this.handleTextInput}/>
+	    </div>
+	    
+<Picker value={selectedSubreddit} onChange={this.handleChange} options={['reactjs', 'frontend']} />
         <p>
           {lastUpdated &&
             <span>

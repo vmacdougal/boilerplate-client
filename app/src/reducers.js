@@ -10,7 +10,7 @@ function selectedSubreddit(state = 'reactjs', action) {
   };
 };
 
-function address(state = null, action) {
+function address(state = '', action) {
     switch(action.type) {
     case ENTER_ADDRESS:
 	return action.address;
@@ -19,7 +19,7 @@ function address(state = null, action) {
     };
 };
 
-function setCoordinates(state = {lat:null, lon:null}, action) {
+function coordinates(state = [30, -97], action) {
     switch(action.type) {
     case SET_COORDINATES:
 	return action.coordinates;
@@ -76,7 +76,7 @@ const rootReducer = combineReducers({
   postsBySubreddit,
     selectedSubreddit,
     address,
-    setCoordinates
+    coordinates
 });
 
 export default rootReducer;

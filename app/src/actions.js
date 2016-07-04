@@ -5,6 +5,7 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';
 export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT';
 export const ENTER_ADDRESS = 'ENTER_ADDRESS';
+export const REQUEST_COORDINATES = 'REQUEST_COORDINATES';
 export const SET_COORDINATES = 'SET_COORDINATES';
 
 export function selectSubreddit(subreddit) {
@@ -21,18 +22,20 @@ export function enterAddress(address) {
     };
 }
 
-function requestCoordinates(lat, lon) {
+function requestCoordinates(address) {
     return {
-	type: SET_COORDINATES,
-	lat,
-	lon
+	type: REQUEST_COORDINATES,
+	address
     };
 }
-export function setCoordinates(address) {
-    enterAddress(address);
-    findMapLocation(address);
-}
 
+function setCoordinates(lat, lon) {
+    var coordinates = [lat, lon];
+    return {
+	type: SET_COORDINATES,
+	coordinates
+    };
+}
 export function invalidateSubreddit(subreddit) {
   return {
     type: INVALIDATE_SUBREDDIT,
@@ -55,6 +58,20 @@ function receivePosts(subreddit, json) {
     receivedAt: Date.now()
   };
 };
+
+export function setCoordinates(address) {
+    var formattedAddress = address.replace(/ /g,'+');
+    return dispatch => {
+	dispatch(requestCoordinates(address));
+    return fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + formattedAddress + ',+Austin,+TX&key=AIzaSyBwG8daotYRfsMPi4m1Wk-12uXUeaKEJ_k')
+	    .then(response => response.json())
+	.then(function(json) {
+	    var latitude = json.results[0].geometry.location.lat;
+	    var longitude = json.results[0].geometry.location.lng;
+	    requestCoordinates(latitude, longitude);
+	});
+    };
+}
 
 function fetchPosts(subreddit) {
   return dispatch => {
