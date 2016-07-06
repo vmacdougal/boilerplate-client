@@ -29,7 +29,7 @@ function requestCoordinates(address) {
     };
 }
 
-function setCoordinates(lat, lon) {
+function updateCoordinates(lat, lon) {
     var coordinates = [lat, lon];
     return {
 	type: SET_COORDINATES,
@@ -68,7 +68,7 @@ export function setCoordinates(address) {
 	.then(function(json) {
 	    var latitude = json.results[0].geometry.location.lat;
 	    var longitude = json.results[0].geometry.location.lng;
-	    requestCoordinates(latitude, longitude);
+	    dispatch(updateCoordinates(latitude, longitude));
 	});
     };
 }
@@ -120,4 +120,3 @@ function findMapLocation(address) {
 	    requestCoordinates(latitude, longitude);
 	});
 }
-
